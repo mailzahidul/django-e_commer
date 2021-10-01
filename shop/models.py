@@ -13,10 +13,10 @@ class Category(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length = 100)
     price = models.FloatField()
-    discount_price =  models.FloatField()
+    discount_price =  models.FloatField(null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='media/product/')
+    image = models.ImageField(upload_to='product/')
 
     def __str__(self):
         return self.title
